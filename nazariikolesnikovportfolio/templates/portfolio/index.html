@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazarii Kolesnikov's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes fadeInPage {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 120px 20px 40px;
+            animation: fadeInPage 1.2s ease-out forwards;
+        }
+
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(244, 247, 246, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            box-sizing: border-box;
+        }
+
+        .fixed-header h1 {
+            color: #333333;
+            margin: 0;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+         }
+
+        .social-icon {
+            color: #555555;
+            font-size: 1.6rem;
+            text-decoration: none;
+            transition:
+            color 0.3s ease,
+            transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-icon.github:hover {
+            color: #333;
+        }
+
+        .social-icon.linkedin:hover {
+            color: #0077b5;
+        }
+
+        .social-icon.telegram:hover {
+            color: #0088cc;
+         }
+
+        .contact-btn {
+            background-color: #333333;
+            color: #ffffff;
+            padding: 10px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .contact-btn:hover {
+            background-color: #0088cc;
+            box-shadow: 0 6px 12px rgba(0, 136, 204, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            color: #555555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1250px;
+            margin: 0 auto 60px auto;
+        }
+
+        .portfolio-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+            cursor: pointer;
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s ease;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .portfolio-card:hover .overlay {
+            opacity: 1;
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .overlay h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.4rem;
+        }
+
+        .overlay p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #dddddd;
+        }
+
+        .about-section {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1150px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        .about-image {
+            flex: 0 0 320px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid #f4f7f6;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .about-text {
+            flex: 1;
+            color: #444444;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .about-text h2 {
+            color: #333333;
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        .about-text ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .about-text li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .about-text li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #0088cc;
+            font-size: 1.1rem;
+        }
+
+        .highlight-text {
+            font-style: italic;
+            color: #0088cc;
+            font-weight: 600;
+            margin-top: 20px;
+            display: block;
+        }
+
+        @media (max-width: 900px) {
+            .fixed-header {
+                flex-direction: column;
+                padding: 15px 20px; gap: 15px;
+            }
+
+            body {
+                padding-top: 160px;
+            }
+
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+
+            .about-image {
+                flex: 0 0 250px;
+            }
+
+            .about-image img {
+                height: 250px;
+            }
+
+            .about-text li {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="fixed-header">
+        <h1>Nazarii Kolesnikov</h1>
+        <nav class="header-nav">
+            <a href="https://github.com/nazariikolesnikov" class="social-icon github" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/nazarii-kolesnikov-84ba89357" class="social-icon linkedin" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="tel:380678333023" class="social-icon whatsapp" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:kolesnikovnazarii2@gmail.com" class="contact-btn">Contact Me</a>
+        </nav>
+    </header>
+
+    <div class="intro-text">
+        <span>Hi, I'm very glad to see you here. This website is a collection of my portfolio projects that I made as a hobby and free time activity. Let's connect and create cool things together!</span>
+    </div>
+
+    <div class="portfolio-grid">
+        {% for item in items %}
+        <div class="portfolio-card">
+            <img src="{{ item.image.url }}" alt="{{ item.title }}">
+            <div class="overlay">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+            </div>
+        </div>
+        {% empty %}
+        {% endfor %}
+    </div>
+
+    <section class="about-section">
+        <div class="about-image">
+            <img src="https://iili.io/CDPD0Gf.md.jpg" alt="Nazarii Kolesnikov">
+        </div>
+
+        <div class="about-text">
+            <h2>About Me</h2>
+            <p>I’m a Trainee/Junior Data Scientist & Analyst with a passion for exploring data and finding meaning where others see only numbers. My goal is to help teams make informed decisions based on accurate analytics, time-series forecasts, and in-depth analysis of metrics. I have hands-on experience building regression models, analyzing medical and web data, and developing interactive visualizations.</p>
+
+            <p>My major, Economic Cybernetics, is the science of systems management. It has taught me how to translate complex economic and business processes into the language of algorithms, mathematical models, and code. Thanks to this education, I don’t just understand how data works: I know how to create technological solutions that make that data work toward a specific outcome.</p>
+
+            <p><strong>My strengths:</strong></p>
+            <ul>
+                <li><strong>Analytical thinking:</strong> The ability to dive deep into a subject area and filter out noise from the data.</li>
+                <li><strong>Flexible tech stack:</strong> Python (Pandas, Polars, TensorFlow), R, SQL, Power BI.</li>
+                <li><strong>Product-oriented approach:</strong> Understanding the full data lifecycle: from collection and backend development to final reports.</li>
+            </ul>
+
+            <span class="highlight-text">I’d be excited to join an ambitious team or get involved in an interesting project in the field of data analysis or ML.</span>
+        </div>
+    </section>
+
+</body>
+</html>
