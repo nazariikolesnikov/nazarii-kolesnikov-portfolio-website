@@ -1,2 +1,1 @@
-# nazarii-kolesnikov-portfolio-website
-Nazarii Kolesnikov's Portfolio Website
+# Nazarii Kolesnikov's Portfolio Website
