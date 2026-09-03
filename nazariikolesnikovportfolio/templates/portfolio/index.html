@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nazarii Kolesnikov's Portfolio</title>
+    <title>Project W | Investments Platform</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @keyframes fadeInPage {
@@ -55,15 +55,13 @@
             display: flex;
             align-items: center;
             gap: 25px;
-         }
+        }
 
         .social-icon {
             color: #555555;
             font-size: 1.6rem;
             text-decoration: none;
-            transition:
-            color 0.3s ease,
-            transform 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .social-icon:hover {
@@ -78,9 +76,9 @@
             color: #0077b5;
         }
 
-        .social-icon.telegram:hover {
-            color: #0088cc;
-         }
+        .social-icon.whatsapp:hover {
+            color: #25D366;
+        }
 
         .contact-btn {
             background-color: #333333;
@@ -166,10 +164,112 @@
             font-size: 1.4rem;
         }
 
-        .overlay p {
+        .investment-section {
+            max-width: 1250px;
+            margin: 0 auto 60px auto;
+            background: #0f1115;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            color: #e5e7eb;
+        }
+
+        .investment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #1f242d;
+        }
+
+        .investment-header h2 {
             margin: 0;
-            font-size: 0.9rem;
-            color: #dddddd;
+            font-size: 1.5rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            border-radius: 8px;
+        }
+
+        .investment-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .investment-table th {
+            background-color: #161a22;
+            color: #8b949e;
+            font-weight: 600;
+            padding: 14px 12px;
+            border-bottom: 1px solid #21262d;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        .investment-table td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #161a22;
+            color: #c9d1d9;
+        }
+
+        .investment-table tr:hover {
+            background-color: #161b22;
+        }
+
+        .asset-cell {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .asset-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #21262d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+
+        .pos-green {
+            color: #2ebd85;
+            font-weight: 600;
+        }
+
+        .neg-red {
+            color: #f6465d;
+            font-weight: 600;
+        }
+
+        .progress-bar-bg {
+            width: 60px;
+            height: 6px;
+            background: #21262d;
+            border-radius: 3px;
+            display: inline-block;
+            margin-right: 8px;
+            vertical-align: middle;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: #0088cc;
+            border-radius: 3px;
         }
 
         .about-section {
@@ -242,10 +342,144 @@
             display: block;
         }
 
+        .chart-section {
+            max-width: 1250px;
+            margin: 0 auto 40px auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            padding: 30px;
+            box-sizing: border-box;
+            animation: fadeInPage 1.2s ease-out forwards;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .chart-title {
+            margin: 0;
+            color: #333333;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .chart-total {
+            margin: 0;
+            color: #00b894;
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .chart-total span {
+            font-size: 1rem;
+            color: #777777;
+            font-weight: 500;
+        }
+
+        .site-footer {
+            background-color: #ffffff;
+            padding: 60px 40px 20px;
+            margin-top: 80px;
+            box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.04);
+            border-top: 1px solid #f4f7f6;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1250px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .footer-mission {
+            max-width: 650px;
+            color: #555555;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .footer-mission i {
+            color: #d63031;
+            margin: 0 6px;
+            animation: pulseHeart 2s infinite;
+        }
+
+        @keyframes pulseHeart {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 35px;
+            margin: 15px 0;
+        }
+
+        .footer-links a {
+            color: #333333;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #0088cc;
+        }
+
+        .footer-bottom {
+            width: 100%;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 25px;
+            color: #999999;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+        }
+
         @media (max-width: 900px) {
             .fixed-header {
                 flex-direction: column;
-                padding: 15px 20px; gap: 15px;
+                padding: 15px 20px;
+                gap: 15px;
             }
 
             body {
@@ -275,141 +509,544 @@
 <body>
 
     <header class="fixed-header">
-        <h1>Nazarii Kolesnikov</h1>
+        <h1>Project W | Investments Platform</h1>
+
         <nav class="header-nav">
             <a href="https://github.com/nazariikolesnikov" class="social-icon github" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/nazarii-kolesnikov-84ba89357" class="social-icon linkedin" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
             <a href="tel:380678333023" class="social-icon whatsapp" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            <a href="mailto:kolesnikovnazarii2@gmail.com" class="contact-btn">Contact Me</a>
+            <a href="mailto:kolesnikovnazarii2@gmail.com" class="contact-btn">Contact Us</a>
         </nav>
     </header>
 
-    <div class="intro-text">
-        <span>Hi, I'm very glad to see you here. This website is a collection of my portfolio projects that I made as a hobby and free time activity. Let's connect and create cool things together!</span>
-    </div>
-
-     <div class="portfolio-grid">
-         <div class="portfolio-card">
-             <img src="https://iili.io/CDsnJ9t.md.png" alt="Spiral Contour of Delaunay Triangulation">
-             <div class="overlay">
-                <h3>Spiral Contour of Delaunay Triangulation</h3>
-             </div>
-         </div>
-
-         <div class="portfolio-card">
-             <img src="https://iili.io/CDsCbPR.png" alt="Tricontour Smooth User">
-             <div class="overlay">
-                <h3>Tricontour Smooth User</h3>
-             </div>
-         </div>
-
-         <div class="portfolio-card">
-              <img src="https://iili.io/CDsRzZP.png" alt="Custom Trigradient Quadrupole Potential">
-              <div class="overlay">
-                 <h3>Custom Trigradient Quadrupole Potential</h3>
-             </div>
-         </div>
-
-         <div class="portfolio-card">
-             <img src="https://iili.io/CDsCDMv.png" alt="Hexagonal Binned Plot">
-             <div class="overlay">
-                <h3>Hexagonal Binned Plot</h3>
-             </div>
-         </div>
-
-         <div class="portfolio-card">
-             <img src="https://iili.io/CDsC4cB.png" alt="Custom Trigradient Vector Field (200 point)">
-             <div class="overlay">
-                <h3>Custom Trigradient Vector Field (200 point)</h3>
-             </div>
-         </div>
-
-         <div class="portfolio-card">
-            <img src="https://iili.io/CDsn9SI.md.png" alt="Finding The Minimum Value Using The Gradient Descent Method">
-            <div class="overlay">
-                <h3>Finding The Minimum Value Using The Gradient Descent Method</h3>
-            </div>
-         </div>
-
-         <div class="portfolio-card">
-             <img src="https://iili.io/CDsCewu.png" alt="Distribution of Facilities by Rehospitalization Rate (Combined Histogram with a Trend Line)">
-             <div class="overlay">
-                <h3>Distribution of Facilities by Rehospitalization Rate (Combined Histogram with a Trend Line)</h3>
-             </div>
-         </div>
-
-         <div class="portfolio-card">
-             <img src="https://iili.io/CDsnaKQ.png" alt="Heat map of industrial production growth by regions of Ukraine">
-             <div class="overlay">
-                <h3>Heat map of industrial production growth by regions of Ukraine</h3>
-             </div>
-         </div>
-
-         <div class="portfolio-card">
-            <img src="https://iili.io/CDsCkZb.md.png" alt="The Effect of Clinical Indicators on Hospitalization Rates">
-            <div class="overlay">
-                <h3>The Effect of Clinical Indicators on Hospitalization Rates</h3>
-            </div>
-         </div>
-
-         <div class="portfolio-card">
-            <img src="https://iili.io/CDsCrFV.md.png" alt="Distribution of Rehospitalization Rates by State (Top 12)">
-            <div class="overlay">
-                <h3>The Effect of Clinical Indicators on Hospitalization Rates</h3>
-            </div>
-         </div>
-
-         <div class="portfolio-card">
-            <img src="https://iili.io/CDsC8nj.md.png" alt="A/B Testing Results (Variant A with 200 successes vs Variant B with 180 successes)">
-            <div class="overlay">
-                <h3>A/B Testing Results (Variant A with 200 successes vs Variant B with 180 successes)</h3>
-            </div>
-         </div>
-
-         <div class="portfolio-card">
-            <img src="https://iili.io/CDsCU6Q.md.png" alt="Overall Quality of Establishments by Category (Pie Chart with Captions)">
-            <div class="overlay">
-                <h3>Overall Quality of Establishments by Category (Pie Chart with Captions)</h3>
-            </div>
-         </div>
-    </div>
-
-<!--
-    <div class="portfolio-grid">
-        {% for item in items %}
-        <div class="portfolio-card">
-            <img src="{{ item.image.url }}" alt="{{ item.title }}">
-            <div class="overlay">
-                <h3>{{ item.title }}</h3>
-                <p>{{ item.description }}</p>
-            </div>
-        </div>
-        {% empty %}
-        {% endfor %}
-    </div>
--->
-
-    <section class="about-section">
-        <div class="about-image">
-            <img src="https://iili.io/CDPD0Gf.md.jpg" alt="Nazarii Kolesnikov">
+    <section class="chart-section">
+        <div class="chart-header">
+            <h3 class="chart-title">Динаміка балансу портфелю</h3>
+            <h2 class="chart-total">$14,250.75 <br><span>Загальна вартість</span></h2>
         </div>
 
-        <div class="about-text">
-            <h2>About Me</h2>
-            <p>I’m a Trainee/Junior Data Scientist & Analyst with a passion for exploring data and finding meaning where others see only numbers. My goal is to help teams make informed decisions based on accurate analytics, time-series forecasts, and in-depth analysis of metrics. I have hands-on experience building regression models, analyzing medical and web data, and developing interactive visualizations.</p>
-
-            <p>My major, Economic Cybernetics, is the science of systems management. It has taught me how to translate complex economic and business processes into the language of algorithms, mathematical models, and code. Thanks to this education, I don’t just understand how data works: I know how to create technological solutions that make that data work toward a specific outcome.</p>
-
-            <p><strong>My strengths:</strong></p>
-            <ul>
-                <li><strong>Analytical thinking:</strong> The ability to dive deep into a subject area and filter out noise from the data.</li>
-                <li><strong>Flexible tech stack:</strong> Python (Pandas, Polars, TensorFlow), R, SQL, Power BI.</li>
-                <li><strong>Product-oriented approach:</strong> Understanding the full data lifecycle: from collection and backend development to final reports.</li>
-            </ul>
-
-            <span class="highlight-text">I’d be excited to join an ambitious team or get involved in an interesting project in the field of data analysis or ML.</span>
+        <div style="position: relative; height: 350px; width: 100%;">
+            <canvas id="portfolioChart"></canvas>
         </div>
     </section>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const ctx = document.getElementById('portfolioChart').getContext('2d');
+            const gradientFill = ctx.createLinearGradient(0, 0, 0, 350);
+
+            gradientFill.addColorStop(0, 'rgba(0, 184, 148, 0.4)');
+            gradientFill.addColorStop(1, 'rgba(0, 184, 148, 0.0)');
+
+            const labels = ['1 Трав', '5 Трав', '10 Трав', '15 Трав', '20 Трав', '25 Трав', '30 Трав'];
+            const dataPoints = [12000, 12300, 12150, 12800, 13400, 13200, 14250.75];
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Вартість портфеля ($)',
+                        data: dataPoints,
+                        borderColor: '#00b894',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#ffffff',
+                        pointBorderColor: '#00b894',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6,
+                        fill: true,
+                        backgroundColor: gradientFill,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(51, 51, 51, 0.9)',
+                            titleFont: {
+                                size: 13,
+                                family: "'Segoe UI', sans-serif"
+                            },
+                            bodyFont: {
+                                size: 14,
+                                weight: 'bold',
+                                family: "'Segoe UI', sans-serif"
+                            },
+                            padding: 12,
+                            displayColors: false,
+                            callbacks: {
+                                label: function(context) {
+                                    return '$' + context.parsed.y.toLocaleString('en-US', {minimumFractionDigits: 2});
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false,
+                                drawBorder: false
+                            },
+                            ticks: {
+                                color: '#999999',
+                                font: { family: "'Segoe UI', sans-serif", size: 12 }
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: '#f0f0f0',
+                                drawBorder: false,
+                                borderDash: [5, 5]
+                            },
+                            ticks: {
+                                color: '#999999',
+                                font: {
+                                    family: "'Segoe UI', sans-serif",
+                                    size: 12
+                                },
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index',
+                    },
+                }
+            });
+        });
+    </script>
+
+    <section class="investment-section">
+        <div class="investment-header">
+            <h2><i class="fa-solid fa-chart-line" style="color: #0088cc;"></i> Інвестиційний Портфель</h2>
+        </div>
+        <div class="table-responsive">
+            <table class="investment-table">
+                <thead>
+                    <tr>
+                        <th>Назва</th>
+                        <th>Кількість</th>
+                        <th>Ціна</th>
+                        <th>% Зміна</th>
+                        <th>Денний P&L</th>
+                        <th>Середня ціна</th>
+                        <th>Собівартість</th>
+                        <th>Ринкова вартість</th>
+                        <th>Нереалізований P&L</th>
+                        <th>Нереалізований P&L %</th>
+                        <th>Алокація</th>
+                        <th>Видатки</th>
+                        <th>Графік</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon"><i class="fa-brands fa-apple"></i></div>
+                                Apple Inc. (AAPL)
+                            </div>
+                        </td>
+                        <td>15</td>
+                        <td>$224.23</td>
+                        <td class="pos-green">+1.85%</td>
+                        <td class="pos-green">+$40.65</td>
+                        <td>$195.00</td>
+                        <td>$2,925.00</td>
+                        <td>$3,363.45</td>
+                        <td class="pos-green">+$438.45</td>
+                        <td class="pos-green">+14.99%</td>
+                        <td>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 45%;"></div></div>45%
+                        </td>
+                        <td>$12.50</td>
+                        <td>
+                            <svg width="70" height="20">
+                                <polyline fill="none" stroke="#2ebd85" stroke-width="2" points="0,15 15,12 30,16 45,8 60,10 70,2"/>
+                            </svg>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon" style="color: #76b900;"><i class="fa-solid fa-microchip"></i></div>
+                                NVIDIA Corp. (NVDA)
+                            </div>
+                        </td>
+                        <td>25</td>
+                        <td>$128.50</td>
+                        <td class="neg-red">-0.92%</td>
+                        <td class="neg-red">-$29.80</td>
+                        <td>$110.20</td>
+                        <td>$2,755.00</td>
+                        <td>$3,212.50</td>
+                        <td class="pos-green">+$457.50</td>
+                        <td class="pos-green">+16.60%</td>
+                        <td>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 35%;"></div></div>35%
+                        </td>
+                        <td>$8.00</td>
+                        <td>
+                            <svg width="70" height="20">
+                                <polyline fill="none" stroke="#f6465d" stroke-width="2" points="0,5 15,10 30,8 45,18 60,14 70,19"/>
+                            </svg>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon" style="color: #f7931a;"><i class="fa-brands fa-bitcoin"></i></div>
+                                Bitcoin (BTC)
+                            </div>
+                        </td>
+                        <td>0.025</td>
+                        <td>$58,400.00</td>
+                        <td class="pos-green">+3.10%</td>
+                        <td class="pos-green">+$43.80</td>
+                        <td>$54,100.00</td>
+                        <td>$1,352.50</td>
+                        <td>$1,460.00</td>
+                        <td class="pos-green">+$107.50</td>
+                        <td class="pos-green">+7.95%</td>
+                        <td>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 20%;"></div></div>20%
+                        </td>
+                        <td>$5.00</td>
+                        <td>
+                            <svg width="70" height="20">
+                                <polyline fill="none" stroke="#2ebd85" stroke-width="2" points="0,18 15,14 30,10 45,12 60,5 70,2"/>
+                            </svg>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon" style="color: #f7931a;"><i class="fa-brands fa-bitcoin"></i></div>
+                                Bitcoin (BTC)
+                            </div>
+                        </td>
+                        <td>0.025</td>
+                        <td>$58,400.00</td>
+                        <td class="pos-green">+3.10%</td>
+                        <td class="pos-green">+$43.80</td>
+                        <td>$54,100.00</td>
+                        <td>$1,352.50</td>
+                        <td>$1,460.00</td>
+                        <td class="pos-green">+$107.50</td>
+                        <td class="pos-green">+7.95%</td>
+                        <td>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 20%;"></div></div>20%
+                        </td>
+                        <td>$5.00</td>
+                        <td>
+                            <svg width="70" height="20">
+                                <polyline fill="none" stroke="#2ebd85" stroke-width="2" points="0,18 15,14 30,10 45,12 60,5 70,2"/>
+                            </svg>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon" style="color: #f7931a;"><i class="fa-brands fa-bitcoin"></i></div>
+                                Bitcoin (BTC)
+                            </div>
+                        </td>
+                        <td>0.025</td>
+                        <td>$58,400.00</td>
+                        <td class="pos-green">+3.10%</td>
+                        <td class="pos-green">+$43.80</td>
+                        <td>$54,100.00</td>
+                        <td>$1,352.50</td>
+                        <td>$1,460.00</td>
+                        <td class="pos-green">+$107.50</td>
+                        <td class="pos-green">+7.95%</td>
+                        <td>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 20%;"></div></div>20%
+                        </td>
+                        <td>$5.00</td>
+                        <td>
+                            <svg width="70" height="20">
+                                <polyline fill="none" stroke="#f6465d" stroke-width="2" points="0,5 15,10 30,8 45,18 60,14 70,19"/>
+                            </svg>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon" style="color: #f7931a;"><i class="fa-brands fa-bitcoin"></i></div>
+                                Bitcoin (BTC)
+                            </div>
+                        </td>
+                        <td>0.025</td>
+                        <td>$58,400.00</td>
+                        <td class="pos-green">+3.10%</td>
+                        <td class="pos-green">+$43.80</td>
+                        <td>$54,100.00</td>
+                        <td>$1,352.50</td>
+                        <td>$1,460.00</td>
+                        <td class="pos-green">+$107.50</td>
+                        <td class="pos-green">+7.95%</td>
+                        <td>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 20%;"></div></div>20%
+                        </td>
+                        <td>$5.00</td>
+                        <td>
+                            <svg width="70" height="20">
+                                <polyline fill="none" stroke="#2ebd85" stroke-width="2" points="0,18 15,14 30,10 45,12 60,5 70,2"/>
+                            </svg>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon" style="color: #f7931a;"><i class="fa-brands fa-bitcoin"></i></div>
+                                Bitcoin (BTC)
+                            </div>
+                        </td>
+                        <td>0.025</td>
+                        <td>$58,400.00</td>
+                        <td class="pos-green">+3.10%</td>
+                        <td class="pos-green">+$43.80</td>
+                        <td>$54,100.00</td>
+                        <td>$1,352.50</td>
+                        <td>$1,460.00</td>
+                        <td class="pos-green">+$107.50</td>
+                        <td class="pos-green">+7.95%</td>
+                        <td>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 20%;"></div></div>20%
+                        </td>
+                        <td>$5.00</td>
+                        <td>
+                            <svg width="70" height="20">
+                                <polyline fill="none" stroke="#2ebd85" stroke-width="2" points="0,18 15,14 30,10 45,12 60,5 70,2"/>
+                            </svg>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon" style="color: #f7931a;"><i class="fa-brands fa-bitcoin"></i></div>
+                                Bitcoin (BTC)
+                            </div>
+                        </td>
+                        <td>0.025</td>
+                        <td>$58,400.00</td>
+                        <td class="pos-green">+3.10%</td>
+                        <td class="pos-green">+$43.80</td>
+                        <td>$54,100.00</td>
+                        <td>$1,352.50</td>
+                        <td>$1,460.00</td>
+                        <td class="pos-green">+$107.50</td>
+                        <td class="pos-green">+7.95%</td>
+                        <td>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 20%;"></div></div>20%
+                        </td>
+                        <td>$5.00</td>
+                         <td>
+                            <svg width="70" height="20">
+                                <polyline fill="none" stroke="#2ebd85" stroke-width="2" points="0,18 15,14 30,10 45,12 60,5 70,2"/>
+                            </svg>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon" style="color: #f7931a;"><i class="fa-brands fa-bitcoin"></i></div>
+                                Bitcoin (BTC)
+                            </div>
+                        </td>
+                        <td>0.025</td>
+                        <td>$58,400.00</td>
+                        <td class="pos-green">+3.10%</td>
+                        <td class="pos-green">+$43.80</td>
+                        <td>$54,100.00</td>
+                        <td>$1,352.50</td>
+                        <td>$1,460.00</td>
+                        <td class="pos-green">+$107.50</td>
+                        <td class="pos-green">+7.95%</td>
+                        <td>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 20%;"></div></div>20%
+                        </td>
+                        <td>$5.00</td>
+                        <td>
+                            <svg width="70" height="20">
+                                <polyline fill="none" stroke="#2ebd85" stroke-width="2" points="0,18 15,14 30,10 45,12 60,5 70,2"/>
+                            </svg>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon" style="color: #f7931a;"><i class="fa-brands fa-bitcoin"></i></div>
+                                Bitcoin (BTC)
+                            </div>
+                        </td>
+                        <td>0.025</td>
+                        <td>$58,400.00</td>
+                        <td class="pos-green">+3.10%</td>
+                        <td class="pos-green">+$43.80</td>
+                        <td>$54,100.00</td>
+                        <td>$1,352.50</td>
+                        <td>$1,460.00</td>
+                        <td class="pos-green">+$107.50</td>
+                        <td class="pos-green">+7.95%</td>
+                        <td>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 20%;"></div></div>20%
+                        </td>
+                        <td>$5.00</td>
+                         <td>
+                            <svg width="70" height="20">
+                                <polyline fill="none" stroke="#2ebd85" stroke-width="2" points="0,18 15,14 30,10 45,12 60,5 70,2"/>
+                            </svg>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon" style="color: #f7931a;"><i class="fa-brands fa-bitcoin"></i></div>
+                                Bitcoin (BTC)
+                            </div>
+                        </td>
+                        <td>0.025</td>
+                        <td>$58,400.00</td>
+                        <td class="pos-green">+3.10%</td>
+                        <td class="pos-green">+$43.80</td>
+                        <td>$54,100.00</td>
+                        <td>$1,352.50</td>
+                        <td>$1,460.00</td>
+                        <td class="pos-green">+$107.50</td>
+                        <td class="pos-green">+7.95%</td>
+                        <td>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 20%;"></div></div>20%
+                        </td>
+                        <td>$5.00</td>
+                        <td>
+                            <svg width="70" height="20">
+                                <polyline fill="none" stroke="#2ebd85" stroke-width="2" points="0,18 15,14 30,10 45,12 60,5 70,2"/>
+                            </svg>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon" style="color: #f7931a;"><i class="fa-brands fa-bitcoin"></i></div>
+                                Bitcoin (BTC)
+                            </div>
+                        </td>
+                        <td>0.025</td>
+                        <td>$58,400.00</td>
+                        <td class="pos-green">+3.10%</td>
+                        <td class="pos-green">+$43.80</td>
+                        <td>$54,100.00</td>
+                        <td>$1,352.50</td>
+                        <td>$1,460.00</td>
+                        <td class="pos-green">+$107.50</td>
+                        <td class="pos-green">+7.95%</td>
+                        <td>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 20%;"></div></div>20%
+                        </td>
+                        <td>$5.00</td>
+                        <td>
+                            <svg width="70" height="20">
+                                <polyline fill="none" stroke="#2ebd85" stroke-width="2" points="0,18 15,14 30,10 45,12 60,5 70,2"/>
+                            </svg>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon" style="color: #f7931a;"><i class="fa-brands fa-bitcoin"></i></div>
+                                Bitcoin (BTC)
+                            </div>
+                        </td>
+                        <td>0.025</td>
+                        <td>$58,400.00</td>
+                        <td class="pos-green">+3.10%</td>
+                        <td class="pos-green">+$43.80</td>
+                        <td>$54,100.00</td>
+                        <td>$1,352.50</td>
+                        <td>$1,460.00</td>
+                        <td class="pos-green">+$107.50</td>
+                        <td class="pos-green">+7.95%</td>
+                        <td>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 20%;"></div></div>20%
+                        </td>
+                        <td>$5.00</td>
+                        <td>
+                            <svg width="70" height="20">
+                                <polyline fill="none" stroke="#2ebd85" stroke-width="2" points="0,18 15,14 30,10 45,12 60,5 70,2"/>
+                            </svg>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon" style="color: #f7931a;"><i class="fa-brands fa-bitcoin"></i></div>
+                                Bitcoin (BTC)
+                            </div>
+                        </td>
+                        <td>0.025</td>
+                        <td>$58,400.00</td>
+                        <td class="pos-green">+3.10%</td>
+                        <td class="pos-green">+$43.80</td>
+                        <td>$54,100.00</td>
+                        <td>$1,352.50</td>
+                        <td>$1,460.00</td>
+                        <td class="pos-green">+$107.50</td>
+                        <td class="pos-green">+7.95%</td>
+                        <td>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 20%;"></div></div>20%
+                        </td>
+                        <td>$5.00</td>
+                        <td>
+                            <svg width="70" height="20">
+                                <polyline fill="none" stroke="#2ebd85" stroke-width="2" points="0,18 15,14 30,10 45,12 60,5 70,2"/>
+                            </svg>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+
+            <div class="footer-mission">
+                "Цей проєкт створено з великою метою <i class="fas fa-heart"></i> Увесь прибуток направляється на підтримку хворих діток та малозабезпечених сімей. Робимо цей світ кращим разом!"
+            </div>
+
+            <div class="footer-links">
+                <a href="#">Головна</a>
+                <a href="#">Аналітика</a>
+                <a href="#">Портфель</a>
+                <a href="mailto:kolesnikovnazarii2@gmail.com">Контакти</a>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2026 Nazarii Kolesnikov. Всі права захищено. Створено з добром.
+                </div>
+
+                <div class="footer-socials">
+                    <a href="https://github.com/nazariikolesnikov" class="social-icon github" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/nazarii-kolesnikov-84ba89357" class="social-icon linkedin" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="tel:380678333023" class="social-icon whatsapp" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
